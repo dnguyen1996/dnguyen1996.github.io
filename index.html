@@ -173,6 +173,38 @@
     margin-bottom: 28px;
   }
 
+  /* ---- tabs ---- */
+  .tabs {
+    display: flex;
+    gap: 28px;
+    border-bottom: 2px solid var(--ink);
+    margin-bottom: 44px;
+  }
+
+  .tab-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: transparent;
+    border: none;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    padding: 0 0 12px;
+    color: var(--ink-soft);
+    cursor: pointer;
+  }
+
+  .tab-btn:hover { color: var(--accent-strong); }
+
+  .tab-btn.active {
+    color: var(--ink);
+    border-bottom-color: var(--accent);
+  }
+
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
   /* ---- cards ---- */
   .cards {
     display: grid;
@@ -366,8 +398,15 @@
         <a href="https://www.linkedin.com/in/darrindnguyen/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
       </span>
     </div>
-    <p class="intro">I build repeatable systems out of ambiguous processes &mdash; on engineering teams, and now with AI agents I design and ship myself. Below: two recent builds, the process behind them, and a few stories from the field.</p>
+    <p class="intro">I build repeatable systems out of ambiguous processes &mdash; on engineering teams, and now with AI agents I design and ship myself. Browse real TPM projects from my career, or the agent systems I build and ship with Claude.</p>
   </header>
+
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="tpm" type="button">TPM Projects</button>
+    <button class="tab-btn" data-tab="ai" type="button">AI / Agent Work</button>
+  </div>
+
+  <div class="tab-panel active" data-panel="tpm">
 
   <section class="block">
     <div class="eyebrow">PROFESSIONAL PROJECTS</div>
@@ -417,6 +456,28 @@
   </section>
 
   <section class="block">
+    <div class="eyebrow">STORIES FROM THE FIELD</div>
+    <div class="cards stories">
+      <article class="card story">
+        <h3>Turning tribal knowledge into a repeatable process</h3>
+        <div class="tags"><span>PROCESS IMPROVEMENT</span><span>DOCUMENTATION</span><span>OWNERSHIP</span></div>
+        <p>A multi-domain user migration ran through one person's head, causing delays. I documented the workflow end-to-end, converted it into procedures the team could run independently, and built a ticket-based system to capture and reuse fixes.</p>
+        <p class="result"><strong>Result &mdash;</strong> the team went from depending on one person to running the process independently, closing the bottleneck for good.</p>
+      </article>
+      <article class="card story">
+        <h3>Closing a single point of failure</h3>
+        <div class="tags"><span>RISK MANAGEMENT</span><span>TEAM DEVELOPMENT</span><span>OWNERSHIP</span></div>
+        <p>A customer issue stalled for days because only one engineer knew the code. I split ownership across the team, paired engineers onto systems they didn't know, and made documentation a standing priority.</p>
+        <p class="result"><strong>Result &mdash;</strong> faster, more confident troubleshooting, and renewed trust from customers and leadership.</p>
+      </article>
+    </div>
+  </section>
+
+  </div>
+
+  <div class="tab-panel" data-panel="ai">
+
+  <section class="block">
     <div class="eyebrow">AGENT SYSTEMS I'VE BUILT</div>
     <div class="cards projects">
       <article class="card">
@@ -464,29 +525,7 @@
     </div>
   </section>
 
-  <section class="block">
-    <div class="eyebrow">STORIES FROM THE FIELD</div>
-    <div class="cards stories">
-      <article class="card story">
-        <h3>Turning tribal knowledge into a repeatable process</h3>
-        <div class="tags"><span>PROCESS IMPROVEMENT</span><span>DOCUMENTATION</span><span>OWNERSHIP</span></div>
-        <p>A multi-domain user migration ran through one person's head, causing delays. I documented the workflow end-to-end, converted it into procedures the team could run independently, and built a ticket-based system to capture and reuse fixes.</p>
-        <p class="result"><strong>Result &mdash;</strong> the team went from depending on one person to running the process independently, closing the bottleneck for good.</p>
-      </article>
-      <article class="card story">
-        <h3>Closing a single point of failure</h3>
-        <div class="tags"><span>RISK MANAGEMENT</span><span>TEAM DEVELOPMENT</span><span>OWNERSHIP</span></div>
-        <p>A customer issue stalled for days because only one engineer knew the code. I split ownership across the team, paired engineers onto systems they didn't know, and made documentation a standing priority.</p>
-        <p class="result"><strong>Result &mdash;</strong> faster, more confident troubleshooting, and renewed trust from customers and leadership.</p>
-      </article>
-      <article class="card story">
-        <h3>Scoping an MVP against a launch deadline</h3>
-        <div class="tags"><span>AMBIGUITY</span><span>PRIORITIZATION</span><span>CROSS-TEAM ALIGNMENT</span></div>
-        <p>Handed a broad, ambiguous moderation bottleneck, I interviewed customers, turned findings into clear requirements, and aligned engineering and dependent teams around a tightly scoped MVP.</p>
-        <p class="result"><strong>Result &mdash;</strong> delivered before the game launch, with room to spare for the next phase.</p>
-      </article>
-    </div>
-  </section>
+  </div>
 
   <footer class="foot">
     <div class="foot-row">
@@ -528,6 +567,19 @@
   }
   wireCopy('copy-email', 'email-text');
   wireCopy('copy-email-2', 'email-text-2');
+
+  function wireTabs() {
+    var btns = document.querySelectorAll('.tab-btn');
+    var panels = document.querySelectorAll('.tab-panel');
+    btns.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var target = btn.getAttribute('data-tab');
+        btns.forEach(function (b) { b.classList.toggle('active', b === btn); });
+        panels.forEach(function (p) { p.classList.toggle('active', p.getAttribute('data-panel') === target); });
+      });
+    });
+  }
+  wireTabs();
 </script>
 
 </body>
