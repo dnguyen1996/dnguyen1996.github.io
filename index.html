@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Darrin Nguyen — Technical Program/Project Manager</title>
+<meta name="description" content="Technical program/project manager portfolio — featured projects, STAR stories, and how I build AI agent systems with Claude.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+  :root {
+    --paper: #F1EFE7;
+    --paper-2: #E7E3D6;
+    --ink: #1A1B1E;
+    --ink-soft: #5B5E63;
+    --line: #CFCABA;
+    --accent: #AE5A22;
+    --accent-strong: #7A3C13;
+    --tag-bg: #DEE4D5;
+    --tag-ink: #37452F;
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #17181B;
+      --paper-2: #202226;
+      --ink: #ECEAE2;
+      --ink-soft: #A6A9AD;
+      --line: #34363B;
+      --accent: #E08A4B;
+      --accent-strong: #F3B583;
+      --tag-bg: #263021;
+      --tag-ink: #B7C9A6;
+      color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #17181B;
+    --paper-2: #202226;
+    --ink: #ECEAE2;
+    --ink-soft: #A6A9AD;
+    --line: #34363B;
+    --accent: #E08A4B;
+    --accent-strong: #F3B583;
+    --tag-bg: #263021;
+    --tag-ink: #B7C9A6;
+    color-scheme: dark;
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'IBM Plex Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  img { max-width: 100%; }
+
+  .page {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 56px 20px 80px;
+  }
+
+  h1, h2, h3 {
+    font-family: 'Big Shoulders Display', 'IBM Plex Sans', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.01em;
+    margin: 0;
+    text-wrap: balance;
+  }
+
+  p { margin: 0; }
+
+  a { color: var(--accent-strong); text-decoration-thickness: 1.5px; }
+  a:hover { color: var(--accent); }
+
+  /* ---- masthead ---- */
+  .masthead {
+    border-bottom: 2px solid var(--ink);
+    padding-bottom: 28px;
+    margin-bottom: 44px;
+  }
+
+  .mast-row {
+    display: grid;
+    grid-template-columns: 96px 1fr;
+    gap: 12px;
+    padding: 5px 0;
+    border-bottom: 1px solid var(--line);
+    align-items: baseline;
+  }
+  .mast-row:first-child { border-top: 1px solid var(--line); }
+
+  .mast-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+
+  .mast-value { font-size: 15px; }
+  .mast-value.name {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    text-transform: uppercase;
+    line-height: 1;
+    letter-spacing: 0.01em;
+  }
+
+  .contact-value {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+  }
+  .contact-value .sep { color: var(--line); }
+
+  .copy-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.04em;
+    background: transparent;
+    border: 1px solid var(--ink-soft);
+    color: var(--ink-soft);
+    padding: 2px 8px;
+    border-radius: 3px;
+    cursor: pointer;
+  }
+  .copy-btn:hover { border-color: var(--accent); color: var(--accent-strong); }
+
+  .intro {
+    margin-top: 22px;
+    font-size: 17px;
+    color: var(--ink-soft);
+    max-width: 62ch;
+  }
+
+  /* ---- sections ---- */
+  .block { margin-bottom: 56px; }
+
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.14em;
+    color: var(--accent-strong);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::after {
+    content: "";
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
+
+  .lede {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 62ch;
+    margin-bottom: 28px;
+  }
+
+  /* ---- cards ---- */
+  .cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+
+  .card {
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    border-left: 3px solid var(--accent);
+    padding: 20px 22px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card-tag {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    color: var(--accent-strong);
+  }
+
+  .card h3 {
+    font-size: 24px;
+    margin-bottom: 2px;
+  }
+
+  .card p { font-size: 15px; color: var(--ink); }
+  .card p strong { color: var(--ink); }
+
+  .story .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 2px 0 4px;
+  }
+  .story .tags span {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10.5px;
+    letter-spacing: 0.04em;
+    background: var(--tag-bg);
+    color: var(--tag-ink);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .story .result { color: var(--ink-soft); }
+  .story .result strong { color: var(--ink); }
+
+  /* ---- pipeline ---- */
+  .pipeline {
+    display: flex;
+    align-items: stretch;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+
+  .stage {
+    flex: 1;
+    background: var(--paper-2);
+    border: 1px solid var(--line);
+    padding: 18px 18px 20px;
+  }
+
+  .stage-num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--accent-strong);
+    margin-bottom: 6px;
+  }
+
+  .stage-name {
+    font-family: 'Big Shoulders Display', sans-serif;
+    font-weight: 900;
+    font-size: 19px;
+    letter-spacing: 0.02em;
+    margin-bottom: 8px;
+  }
+
+  .stage p { font-size: 14px; color: var(--ink-soft); }
+
+  .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    color: var(--line);
+    font-size: 20px;
+    flex: 0 0 auto;
+  }
+
+  .callout {
+    border-top: 1px solid var(--line);
+    padding-top: 18px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .callout-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    color: var(--ink-soft);
+  }
+
+  .callout p { font-size: 15px; max-width: 64ch; }
+
+  /* ---- footer ---- */
+  .foot {
+    border-top: 2px solid var(--ink);
+    padding-top: 20px;
+  }
+
+  .foot-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    font-size: 14px;
+  }
+  .foot-row .name {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 500;
+  }
+  .foot-row .sep { color: var(--line); }
+
+  @media (max-width: 560px) {
+    .mast-value.name { font-size: 30px; }
+    .pipeline { flex-direction: column; }
+    .arrow { transform: rotate(90deg); padding: 2px 0; }
+    .mast-row { grid-template-columns: 78px 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+  <header class="masthead">
+    <div class="mast-row">
+      <span class="mast-label">NAME</span>
+      <span class="mast-value name">Darrin Nguyen</span>
+    </div>
+    <div class="mast-row">
+      <span class="mast-label">FOCUS</span>
+      <span class="mast-value">Technical Program / Project Manager</span>
+    </div>
+    <div class="mast-row">
+      <span class="mast-label">BASE</span>
+      <span class="mast-value">San Diego, CA</span>
+    </div>
+    <div class="mast-row contact-row">
+      <span class="mast-label">CONTACT</span>
+      <span class="mast-value contact-value">
+        <span id="email-text">darrinnguyen2@gmail.com</span>
+        <button id="copy-email" class="copy-btn" type="button">Copy</button>
+        <span class="sep">&middot;</span>
+        <a href="https://www.linkedin.com/in/darrindnguyen/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+      </span>
+    </div>
+    <p class="intro">I build repeatable systems out of ambiguous processes &mdash; on engineering teams, and now with AI agents I design and ship myself. Below: two recent builds, the process behind them, and a few stories from the field.</p>
+  </header>
+
+  <section class="block">
+    <div class="eyebrow">PROJECTS</div>
+    <div class="cards projects">
+      <article class="card">
+        <div class="card-tag">AGENT SYSTEM &middot; LIVE</div>
+        <h3>Tennis Link Scraper</h3>
+        <p><strong>Problem &mdash;</strong> USTA adult league standings across four Southern California districts had to be checked by hand on a clunky site.</p>
+        <p><strong>Built &mdash;</strong> A pipeline that logs in, pulls match results across every district, and updates a tracking sheet automatically. Added a real text-message line, built on Twilio and hosted in the cloud, that answers USTA rules questions on demand &mdash; plus a one-tap phone shortcut to trigger a refresh from anywhere. None of it needs a laptop turned on.</p>
+      </article>
+      <article class="card">
+        <div class="card-tag">AGENT SYSTEM &middot; SELF-BUILT</div>
+        <h3>Job Search Operations</h3>
+        <p><strong>Problem &mdash;</strong> Treating a job search like a real project instead of an ad hoc scramble &mdash; postings, interview prep, and case answers scattered across tabs and notes.</p>
+        <p><strong>Built &mdash;</strong> A weekly, unattended scrape of new Technical Program/Project Manager openings into a tracking sheet; a structured bank of STAR stories tagged by competency; and a coverage map that checks the story bank against dozens of common interview questions and flags exactly which ones still have no good answer.</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">HOW I BUILD WITH CLAUDE</div>
+    <p class="lede">I manage AI the way I'd manage a team: write the instructions down, let it decide how to execute, and make sure the real work runs through tested, repeatable steps instead of guesswork.</p>
+
+    <div class="pipeline">
+      <div class="stage">
+        <div class="stage-num">01</div>
+        <div class="stage-name">Directive</div>
+        <p>Write the SOP &mdash; goals, inputs, edge cases &mdash; in plain language. The same document I'd hand a new hire.</p>
+      </div>
+      <div class="arrow">&#8594;</div>
+      <div class="stage">
+        <div class="stage-num">02</div>
+        <div class="stage-name">Orchestration</div>
+        <p>The AI reads it and decides &mdash; what to run, in what order, how to handle errors, when to ask me instead of guessing.</p>
+      </div>
+      <div class="arrow">&#8594;</div>
+      <div class="stage">
+        <div class="stage-num">03</div>
+        <div class="stage-name">Execution</div>
+        <p>Reliable code does the work &mdash; small, tested scripts handle the scraping, texting, and spreadsheet updates so mistakes don't stack up.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <span class="callout-label">WHEN SOMETHING BREAKS</span>
+      <p>I don't just patch it. I fix the tool, test it again, and rewrite the instructions so it doesn't fail the same way twice &mdash; and before anything new goes live, a separate review pass checks it, the same discipline as a second set of eyes on any real deliverable.</p>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">STORIES FROM THE FIELD</div>
+    <div class="cards stories">
+      <article class="card story">
+        <h3>Turning tribal knowledge into a repeatable process</h3>
+        <div class="tags"><span>PROCESS IMPROVEMENT</span><span>DOCUMENTATION</span><span>OWNERSHIP</span></div>
+        <p>A multi-domain user migration ran through one person's head, causing delays. I documented the workflow end-to-end, converted it into procedures the team could run independently, and built a ticket-based system to capture and reuse fixes.</p>
+        <p class="result"><strong>Result &mdash;</strong> the team went from depending on one person to running the process independently, closing the bottleneck for good.</p>
+      </article>
+      <article class="card story">
+        <h3>Closing a single point of failure</h3>
+        <div class="tags"><span>RISK MANAGEMENT</span><span>TEAM DEVELOPMENT</span><span>OWNERSHIP</span></div>
+        <p>A customer issue stalled for days because only one engineer knew the code. I split ownership across the team, paired engineers onto systems they didn't know, and made documentation a standing priority.</p>
+        <p class="result"><strong>Result &mdash;</strong> faster, more confident troubleshooting, and renewed trust from customers and leadership.</p>
+      </article>
+      <article class="card story">
+        <h3>Scoping an MVP against a launch deadline</h3>
+        <div class="tags"><span>AMBIGUITY</span><span>PRIORITIZATION</span><span>CROSS-TEAM ALIGNMENT</span></div>
+        <p>Handed a broad, ambiguous moderation bottleneck, I interviewed customers, turned findings into clear requirements, and aligned engineering and dependent teams around a tightly scoped MVP.</p>
+        <p class="result"><strong>Result &mdash;</strong> delivered before the game launch, with room to spare for the next phase.</p>
+      </article>
+    </div>
+  </section>
+
+  <footer class="foot">
+    <div class="foot-row">
+      <span class="name">DARRIN NGUYEN</span>
+      <span class="sep">&middot;</span>
+      <span id="email-text-2">darrinnguyen2@gmail.com</span>
+      <button id="copy-email-2" class="copy-btn" type="button">Copy</button>
+      <span class="sep">&middot;</span>
+      <a href="https://www.linkedin.com/in/darrindnguyen/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+  function wireCopy(btnId, textId) {
+    var btn = document.getElementById(btnId);
+    var txt = document.getElementById(textId);
+    if (!btn || !txt) return;
+    btn.addEventListener('click', function () {
+      var value = txt.textContent;
+      function fallback() {
+        try {
+          var range = document.createRange();
+          range.selectNodeContents(txt);
+          var sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+        } catch (e) {}
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(value).then(function () {
+          btn.textContent = 'Copied';
+          setTimeout(function () { btn.textContent = 'Copy'; }, 1500);
+        }).catch(fallback);
+      } else {
+        fallback();
+      }
+    });
+  }
+  wireCopy('copy-email', 'email-text');
+  wireCopy('copy-email-2', 'email-text-2');
+</script>
+
+</body>
+</html>
