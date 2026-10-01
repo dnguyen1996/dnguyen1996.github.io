@@ -516,43 +516,43 @@
       </div>
       <article class="card project-detail">
         <h3>Player Flags MVP</h3>
-        <p class="project-overview">I scoped and delivered a new microservice ahead of a game launch deadline, replacing a bottlenecked legacy system and freeing four engineering teams to work on it independently.</p>
+        <p class="project-overview">I led a new &ldquo;Player Flags&rdquo; service from idea to launch on time for a major game release, so four teams could manage player restrictions without getting in each other&rsquo;s way.</p>
         <div class="detail-grid">
           <div class="detail-col">
             <div class="detail-label">PROBLEM</div>
             <ul>
-              <li>Feature Bans lived inside the platform's old monolith architecture</li>
-              <li>4 teams depended on it: Anti-Cheat, Moderation, Matchmaking, and Player Support</li>
-              <li>Because it was part of the monolith, no team could change it without risking every other team's service</li>
-              <li>Moderation was hitting a bottleneck trying to scale on top of it</li>
+              <li>Player restrictions were built into one big, tangled system. These ranged from limiting a player to matches against computer opponents, to banning an account for a set period or permanently</li>
+              <li>4 teams relied on it: Anti-Cheat, Moderation, Matchmaking, and Player Support</li>
+              <li>Any change by one team risked breaking the others&rsquo; work</li>
+              <li>Moderation had outgrown the old system and couldn&rsquo;t scale on top of it</li>
             </ul>
           </div>
           <div class="detail-col">
             <div class="detail-label">WHAT NEEDED TO BE DONE</div>
             <ul>
-              <li>Activision was moving away from the monolith toward microservices, so each service could scale and update on its own</li>
-              <li>This project would pull player state out of the monolith into its own service, called Player Flags, with a clean API</li>
-              <li>The new service needed an MVP that could ship by the next game's launch date</li>
+              <li>Activision was breaking its big system into smaller, independent services, so each could be updated without affecting the rest</li>
+              <li>This project would move player restrictions into their own service, called Player Flags, that other teams could connect to easily</li>
+              <li>A first working version had to be ready by the next game&rsquo;s launch date</li>
             </ul>
           </div>
           <div class="detail-col">
             <div class="detail-label">WHAT I DID</div>
             <ul>
-              <li>Interviewed the 4 customer teams to learn their workflows and pain points</li>
-              <li>Turned those findings into clear requirements</li>
-              <li>Cut scope to fit the deadline: kept the core functionality, pushed bulk operations to after launch</li>
-              <li>Aligned engineering and all 4 teams on who owned what, what depended on what, and how we'd test it together</li>
-              <li>Caught the team building past MVP scope partway through and redirected them back to the plan</li>
+              <li>Interviewed the 4 teams to learn how they worked and what frustrated them</li>
+              <li>Turned what I heard into a clear list of requirements</li>
+              <li>Cut scope to hit the deadline: kept the essentials and moved large batch actions (restricting up to tens of thousands of players at once) to after launch</li>
+              <li>Got engineering and all 4 teams to agree on who owned what, who depended on whom, and how we&rsquo;d test together</li>
+              <li>Noticed the team starting to build beyond the first version and steered them back to the plan</li>
             </ul>
           </div>
           <div class="detail-col">
             <div class="detail-label">IMPACT</div>
             <ul>
               <li>Shipped on time for the game's launch</li>
-              <li>Had enough runway left over to start the next phase of work early</li>
-              <li>Delivered a real, working piece of Activision's move to microservices</li>
-              <li>Customer teams gave positive feedback on the new service</li>
-              <li>Bulk operations did slow down real-time requests later, confirming it was right to push them past launch</li>
+              <li>Finished early enough to start the next phase ahead of schedule</li>
+              <li>Delivered a real step in Activision&rsquo;s move to smaller, independent services</li>
+              <li>The 4 teams gave positive feedback on the new service</li>
+              <li>Batch actions later slowed down everyday requests, which confirmed that holding them back until after launch was the right call</li>
             </ul>
           </div>
         </div>
@@ -560,37 +560,37 @@
 
       <article class="card project-detail">
         <h3>Closing the Engineering Team Knowledge Gap</h3>
-        <p class="project-overview">I fixed a knowledge gap between our US and Dublin engineering teams that caused day-long delays on technical issues, cutting response time to hours (sometimes minutes) and earning verified praise from senior leadership.</p>
+        <p class="project-overview">I closed a knowledge gap between our US and Dublin engineering teams that left problems waiting a day or more for a fix, bringing response time down to hours, sometimes minutes, which senior leadership confirmed.</p>
         <div class="detail-grid">
           <div class="detail-col">
             <div class="detail-label">PROBLEM</div>
             <ul>
-              <li>Dublin (6 engineers) owned 5 of our 7 services; the US team (3 engineers) only knew 2</li>
-              <li>Issues on those 5 services during US hours sat untouched until Dublin came online, sometimes a full day or weekend later</li>
-              <li>Dublin engineers were also paged after hours for routine issues, not real emergencies, simply because they were the only ones who could fix them</li>
+              <li>Our team ran 7 services. The Dublin team (6 engineers) knew 5 of them, but the US team (3 engineers) knew only 2</li>
+              <li>Problems on those 5 services during US working hours sat untouched until Dublin came online, sometimes a full day or a whole weekend</li>
+              <li>Dublin engineers were also woken up after hours for routine issues, not real emergencies, only because they were the only ones who could fix them</li>
             </ul>
           </div>
           <div class="detail-col">
             <div class="detail-label">WHAT NEEDED TO BE DONE</div>
             <ul>
-              <li>Get the US team able to troubleshoot and fix all 7 services on their own</li>
+              <li>Get the US team able to diagnose and fix all 7 services on their own</li>
             </ul>
           </div>
           <div class="detail-col">
             <div class="detail-label">WHAT I DID</div>
             <ul>
-              <li>Paired US and Dublin engineers on shared projects to spread knowledge across services</li>
-              <li>Added knowledge sharing time to standups and started a recurring office hours session</li>
-              <li>Built a standardized Confluence hub documenting each service</li>
+              <li>Paired US and Dublin engineers on shared projects so knowledge spread naturally</li>
+              <li>Added knowledge-sharing time to daily team meetings and started regular open &ldquo;office hours&rdquo;</li>
+              <li>Built one central, standardized guide in Confluence (our team&rsquo;s shared wiki) covering each service</li>
             </ul>
           </div>
           <div class="detail-col">
             <div class="detail-label">IMPACT</div>
             <ul>
-              <li>In about 6 months, the US team could independently handle all 7 services</li>
-              <li>Response time dropped from a day or weekend to hours or minutes</li>
-              <li>Dublin's after-hours pages for routine issues stopped</li>
-              <li>Senior leadership confirmed the improvement after checking in with other studios' directors</li>
+              <li>In about 6 months, the US team could handle all 7 services independently</li>
+              <li>Response time dropped from a day or a weekend to hours or even minutes</li>
+              <li>Dublin&rsquo;s after-hours alerts for routine issues stopped</li>
+              <li>Senior leadership confirmed the improvement after checking with directors at other studios</li>
             </ul>
           </div>
         </div>
