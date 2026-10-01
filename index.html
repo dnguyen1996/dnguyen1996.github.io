@@ -284,6 +284,12 @@
   /* ---- professional project detail cards ---- */
   .project-detail { border-left: 3px solid var(--accent-strong); }
 
+  .project-overview {
+    font-size: 14.5px;
+    color: var(--ink-soft);
+    margin: 2px 0 6px;
+  }
+
   .detail-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -506,6 +512,44 @@
               <li>Delivered a real, working piece of Activision's move to microservices</li>
               <li>Customer teams gave positive feedback on the new service</li>
               <li>Bulk operations did slow down real-time requests later, confirming it was right to push them past launch</li>
+            </ul>
+          </div>
+        </div>
+      </article>
+
+      <article class="card project-detail">
+        <h3>Single Point of Failure</h3>
+        <p class="project-overview">As a Technical Project Manager at Activision, I fixed a knowledge gap between our US and Dublin engineering teams that caused day-long delays on technical issues, cutting response time to hours (sometimes minutes) and earning verified praise from senior leadership.</p>
+        <div class="detail-grid">
+          <div class="detail-col">
+            <div class="detail-label">PROBLEM</div>
+            <ul>
+              <li>Dublin (6 engineers) owned 5 of our 7 services; the US team (3 engineers) only knew 2</li>
+              <li>Issues on those 5 services during US hours sat untouched until Dublin came online, sometimes a full day or weekend later</li>
+              <li>Dublin engineers were also paged after hours for routine issues, not real emergencies, simply because they were the only ones who could fix them</li>
+            </ul>
+          </div>
+          <div class="detail-col">
+            <div class="detail-label">WHAT NEEDED TO BE DONE</div>
+            <ul>
+              <li>Get the US team able to troubleshoot and fix all 7 services on their own</li>
+            </ul>
+          </div>
+          <div class="detail-col">
+            <div class="detail-label">WHAT I DID</div>
+            <ul>
+              <li>Paired US and Dublin engineers on shared projects to spread knowledge across services</li>
+              <li>Added knowledge sharing time to standups and started a recurring office hours session</li>
+              <li>Built a standardized Confluence hub documenting each service</li>
+            </ul>
+          </div>
+          <div class="detail-col">
+            <div class="detail-label">IMPACT</div>
+            <ul>
+              <li>In about 6 months, the US team could independently handle all 7 services</li>
+              <li>Response time dropped from a day or weekend to hours or minutes</li>
+              <li>Dublin's after-hours pages for routine issues stopped</li>
+              <li>Senior leadership confirmed the improvement after checking in with other studios' directors</li>
             </ul>
           </div>
         </div>
