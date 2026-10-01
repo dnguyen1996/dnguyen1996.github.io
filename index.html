@@ -290,6 +290,32 @@
     margin: 2px 0 6px;
   }
 
+  .project-more { margin-top: 4px; }
+
+  .project-more summary {
+    cursor: pointer;
+    list-style: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    color: var(--accent-strong);
+    padding: 6px 0;
+  }
+  .project-more summary::-webkit-details-marker { display: none; }
+  .project-more summary::before {
+    content: '+';
+    display: inline-block;
+    width: 14px;
+    text-align: center;
+    font-weight: 600;
+  }
+  .project-more[open] summary::before { content: '\2212'; }
+  .project-more summary:hover { text-decoration: underline; }
+  .project-more summary:focus-visible { outline: 2px solid var(--accent-strong); outline-offset: 3px; }
+
   .detail-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -469,43 +495,46 @@
       <article class="card project-detail">
         <h3>Active Directory Domain Migration</h3>
         <p class="project-overview">I led the move of 150 employees' logins and computers into one company-wide system for managing access. I built the process and training so the whole team could run sessions independently, which let us scale up and hit our 6-month timeline.</p>
-        <div class="detail-grid">
-          <div class="detail-col">
-            <div class="detail-label">PROBLEM</div>
-            <ul>
-              <li>Each region ran its own separate system for employee logins and computer access. These systems are called Active Directory domains.</li>
-              <li>The team tracked who needed to move using one-time data exports. The exports were often out of date and didn't match each other.</li>
-              <li>It was unclear who needed to be moved and what kind of move they needed.</li>
-              <li>The steps for a migration lived mostly in people's heads, so engineers couldn't lead sessions on their own.</li>
-              <li>Employees didn't know what to expect in their session. Early on, 3 sessions had to be rescheduled because people weren't prepared.</li>
-            </ul>
+        <details class="project-more">
+          <summary>Show details</summary>
+          <div class="detail-grid">
+            <div class="detail-col">
+              <div class="detail-label">PROBLEM</div>
+              <ul>
+                <li>Each region ran its own separate system for employee logins and computer access. These systems are called Active Directory domains.</li>
+                <li>The team tracked who needed to move using one-time data exports. The exports were often out of date and didn't match each other.</li>
+                <li>It was unclear who needed to be moved and what kind of move they needed.</li>
+                <li>The steps for a migration lived mostly in people's heads, so engineers couldn't lead sessions on their own.</li>
+                <li>Employees didn't know what to expect in their session. Early on, 3 sessions had to be rescheduled because people weren't prepared.</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">WHAT NEEDED TO BE DONE</div>
+              <ul>
+                <li>Move 150 employees across America, the UK, China and South Korea. About half of them had 2-3 computers or devices each.</li>
+                <li>Move their accounts and computers from the regional systems into one central company-wide system.</li>
+                <li>Make access management consistent, so future security and access projects could move forward.</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">WHAT I DID</div>
+              <ul>
+                <li>Built one tracking sheet and updated it after every migration session, instead of pulling new exports.</li>
+                <li>Cut the tracked information from 25 columns to 7, keeping only what we needed to prepare for each migration.</li>
+                <li>Wrote a step-by-step runbook so every migration followed the same process.</li>
+                <li>After the first 3 reschedules, made a short slide deck that told employees what to expect and what to do during their session.</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">IMPACT</div>
+              <ul>
+                <li>Migrated all 150 employees in 6 months, hitting our timeline.</li>
+                <li>All 3 engineers could run sessions on their own using the runbook. They could run sessions in parallel without needing the lead (most senior) engineer in each one, which scaled our workflow and sped things up.</li>
+                <li>Reschedules caused by lack of preparation dropped from 3 to 0 after the slide deck. The few later reschedules came from scheduling conflicts we couldn't control.</li>
+              </ul>
+            </div>
           </div>
-          <div class="detail-col">
-            <div class="detail-label">WHAT NEEDED TO BE DONE</div>
-            <ul>
-              <li>Move 150 employees across America, the UK, China and South Korea. About half of them had 2-3 computers or devices each.</li>
-              <li>Move their accounts and computers from the regional systems into one central company-wide system.</li>
-              <li>Make access management consistent, so future security and access projects could move forward.</li>
-            </ul>
-          </div>
-          <div class="detail-col">
-            <div class="detail-label">WHAT I DID</div>
-            <ul>
-              <li>Built one tracking sheet and updated it after every migration session, instead of pulling new exports.</li>
-              <li>Cut the tracked information from 25 columns to 7, keeping only what we needed to prepare for each migration.</li>
-              <li>Wrote a step-by-step runbook so every migration followed the same process.</li>
-              <li>After the first 3 reschedules, made a short slide deck that told employees what to expect and what to do during their session.</li>
-            </ul>
-          </div>
-          <div class="detail-col">
-            <div class="detail-label">IMPACT</div>
-            <ul>
-              <li>Migrated all 150 employees in 6 months, hitting our timeline.</li>
-              <li>All 3 engineers could run sessions on their own using the runbook. They could run sessions in parallel without needing the lead (most senior) engineer in each one, which scaled our workflow and sped things up.</li>
-              <li>Reschedules caused by lack of preparation dropped from 3 to 0 after the slide deck. The few later reschedules came from scheduling conflicts we couldn't control.</li>
-            </ul>
-          </div>
-        </div>
+        </details>
       </article>
     </div>
 
@@ -517,123 +546,132 @@
       <article class="card project-detail">
         <h3>Player Flags MVP</h3>
         <p class="project-overview">I led a new &ldquo;Player Flags&rdquo; service from idea to launch on time for a major game release, so four teams could manage player restrictions without getting in each other&rsquo;s way.</p>
-        <div class="detail-grid">
-          <div class="detail-col">
-            <div class="detail-label">PROBLEM</div>
-            <ul>
-              <li>Player restrictions were built into one big, tangled system. These ranged from limiting a player to matches against computer opponents, to banning an account for a set period or permanently</li>
-              <li>4 teams relied on it: Anti-Cheat, Moderation, Matchmaking, and Player Support</li>
-              <li>Any change by one team risked breaking the others&rsquo; work</li>
-              <li>Moderation had outgrown the old system and couldn&rsquo;t scale on top of it</li>
-            </ul>
+        <details class="project-more">
+          <summary>Show details</summary>
+          <div class="detail-grid">
+            <div class="detail-col">
+              <div class="detail-label">PROBLEM</div>
+              <ul>
+                <li>Player restrictions were built into one big, tangled system. These ranged from limiting a player to matches against computer opponents, to banning an account for a set period or permanently</li>
+                <li>4 teams relied on it: Anti-Cheat, Moderation, Matchmaking, and Player Support</li>
+                <li>Any change by one team risked breaking the others&rsquo; work</li>
+                <li>Moderation had outgrown the old system and couldn&rsquo;t scale on top of it</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">WHAT NEEDED TO BE DONE</div>
+              <ul>
+                <li>Activision was breaking its big system into smaller, independent services, so each could be updated without affecting the rest</li>
+                <li>This project would move player restrictions into their own service, called Player Flags, that other teams could connect to easily</li>
+                <li>A first working version had to be ready by the next game&rsquo;s launch date</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">WHAT I DID</div>
+              <ul>
+                <li>Interviewed the 4 teams to learn how they worked and what frustrated them</li>
+                <li>Turned what I heard into a clear list of requirements</li>
+                <li>Cut scope to hit the deadline: kept the essentials and moved large batch actions (restricting up to tens of thousands of players at once) to after launch</li>
+                <li>Got engineering and all 4 teams to agree on who owned what, who depended on whom, and how we&rsquo;d test together</li>
+                <li>Noticed the team starting to build beyond the first version and steered them back to the plan</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">IMPACT</div>
+              <ul>
+                <li>Shipped on time for the game's launch</li>
+                <li>Finished early enough to start the next phase ahead of schedule</li>
+                <li>Delivered a real step in Activision&rsquo;s move to smaller, independent services</li>
+                <li>The 4 teams gave positive feedback on the new service</li>
+                <li>Batch actions later slowed down everyday requests, which confirmed that holding them back until after launch was the right call</li>
+              </ul>
+            </div>
           </div>
-          <div class="detail-col">
-            <div class="detail-label">WHAT NEEDED TO BE DONE</div>
-            <ul>
-              <li>Activision was breaking its big system into smaller, independent services, so each could be updated without affecting the rest</li>
-              <li>This project would move player restrictions into their own service, called Player Flags, that other teams could connect to easily</li>
-              <li>A first working version had to be ready by the next game&rsquo;s launch date</li>
-            </ul>
-          </div>
-          <div class="detail-col">
-            <div class="detail-label">WHAT I DID</div>
-            <ul>
-              <li>Interviewed the 4 teams to learn how they worked and what frustrated them</li>
-              <li>Turned what I heard into a clear list of requirements</li>
-              <li>Cut scope to hit the deadline: kept the essentials and moved large batch actions (restricting up to tens of thousands of players at once) to after launch</li>
-              <li>Got engineering and all 4 teams to agree on who owned what, who depended on whom, and how we&rsquo;d test together</li>
-              <li>Noticed the team starting to build beyond the first version and steered them back to the plan</li>
-            </ul>
-          </div>
-          <div class="detail-col">
-            <div class="detail-label">IMPACT</div>
-            <ul>
-              <li>Shipped on time for the game's launch</li>
-              <li>Finished early enough to start the next phase ahead of schedule</li>
-              <li>Delivered a real step in Activision&rsquo;s move to smaller, independent services</li>
-              <li>The 4 teams gave positive feedback on the new service</li>
-              <li>Batch actions later slowed down everyday requests, which confirmed that holding them back until after launch was the right call</li>
-            </ul>
-          </div>
-        </div>
+        </details>
       </article>
 
       <article class="card project-detail">
         <h3>Closing the Engineering Team Knowledge Gap</h3>
         <p class="project-overview">I closed a knowledge gap between our US and Dublin engineering teams that left problems waiting a day or more for a fix, bringing response time down to hours, sometimes minutes, which senior leadership confirmed.</p>
-        <div class="detail-grid">
-          <div class="detail-col">
-            <div class="detail-label">PROBLEM</div>
-            <ul>
-              <li>Our team ran 7 services. The Dublin team (6 engineers) knew 5 of them, but the US team (3 engineers) knew only 2</li>
-              <li>Problems on those 5 services during US working hours sat untouched until Dublin came online, sometimes a full day or a whole weekend</li>
-              <li>Dublin engineers were also woken up after hours for routine issues, not real emergencies, only because they were the only ones who could fix them</li>
-            </ul>
+        <details class="project-more">
+          <summary>Show details</summary>
+          <div class="detail-grid">
+            <div class="detail-col">
+              <div class="detail-label">PROBLEM</div>
+              <ul>
+                <li>Our team ran 7 services. The Dublin team (6 engineers) knew 5 of them, but the US team (3 engineers) knew only 2</li>
+                <li>Problems on those 5 services during US working hours sat untouched until Dublin came online, sometimes a full day or a whole weekend</li>
+                <li>Dublin engineers were also woken up after hours for routine issues, not real emergencies, only because they were the only ones who could fix them</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">WHAT NEEDED TO BE DONE</div>
+              <ul>
+                <li>Get the US team able to diagnose and fix all 7 services on their own</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">WHAT I DID</div>
+              <ul>
+                <li>Paired US and Dublin engineers on shared projects so knowledge spread naturally</li>
+                <li>Added knowledge-sharing time to daily team meetings and started regular open &ldquo;office hours&rdquo;</li>
+                <li>Built one central, standardized guide in Confluence (our team&rsquo;s shared wiki) covering each service</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">IMPACT</div>
+              <ul>
+                <li>In about 6 months, the US team could handle all 7 services independently</li>
+                <li>Response time dropped from a day or a weekend to hours or even minutes</li>
+                <li>Dublin&rsquo;s after-hours alerts for routine issues stopped</li>
+                <li>Senior leadership confirmed the improvement after checking with directors at other studios</li>
+              </ul>
+            </div>
           </div>
-          <div class="detail-col">
-            <div class="detail-label">WHAT NEEDED TO BE DONE</div>
-            <ul>
-              <li>Get the US team able to diagnose and fix all 7 services on their own</li>
-            </ul>
-          </div>
-          <div class="detail-col">
-            <div class="detail-label">WHAT I DID</div>
-            <ul>
-              <li>Paired US and Dublin engineers on shared projects so knowledge spread naturally</li>
-              <li>Added knowledge-sharing time to daily team meetings and started regular open &ldquo;office hours&rdquo;</li>
-              <li>Built one central, standardized guide in Confluence (our team&rsquo;s shared wiki) covering each service</li>
-            </ul>
-          </div>
-          <div class="detail-col">
-            <div class="detail-label">IMPACT</div>
-            <ul>
-              <li>In about 6 months, the US team could handle all 7 services independently</li>
-              <li>Response time dropped from a day or a weekend to hours or even minutes</li>
-              <li>Dublin&rsquo;s after-hours alerts for routine issues stopped</li>
-              <li>Senior leadership confirmed the improvement after checking with directors at other studios</li>
-            </ul>
-          </div>
-        </div>
+        </details>
       </article>
 
       <article class="card project-detail">
         <h3>Putting Quality Before the Deadline</h3>
         <p class="project-overview">I guided my team to delay a launch-critical feature by 1.5 weeks so it could be tested properly, and it shipped well under its capacity target.</p>
-        <div class="detail-grid">
-          <div class="detail-col">
-            <div class="detail-label">PROBLEM</div>
-            <ul>
-              <li>We were building a new feature for Player Flags, a shared database of flagged players, in time for a new game launch</li>
-              <li>It passed load testing, but it was running at about 80% of its capacity. The target was about 60%</li>
-              <li>A spike in real players at launch could have slowed it down or made it fail</li>
-              <li>The team felt pressure to ship on time and fix scaling after launch</li>
-            </ul>
+        <details class="project-more">
+          <summary>Show details</summary>
+          <div class="detail-grid">
+            <div class="detail-col">
+              <div class="detail-label">PROBLEM</div>
+              <ul>
+                <li>We were building a new feature for Player Flags, a shared database of flagged players, in time for a new game launch</li>
+                <li>It passed load testing, but it was running at about 80% of its capacity. The target was about 60%</li>
+                <li>A spike in real players at launch could have slowed it down or made it fail</li>
+                <li>The team felt pressure to ship on time and fix scaling after launch</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">WHAT NEEDED TO BE DONE</div>
+              <ul>
+                <li>Help the team decide between hitting the date and protecting players at launch</li>
+                <li>Get the game studio to accept a later delivery</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">WHAT I DID</div>
+              <ul>
+                <li>Pushed back on shipping as-is and laid out the risk for the team</li>
+                <li>Proposed more load testing and tuning, and a 1.5-week extension to fit it in</li>
+                <li>Walked the studio through the data and what could go wrong for players</li>
+                <li>Kept testing and sharing updated results until everyone was comfortable</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">IMPACT</div>
+              <ul>
+                <li>The studio was unhappy about the delay, but agreed the risk wasn&rsquo;t worth it</li>
+                <li>Load dropped from about 80% to 50-55%, well under the 60% target</li>
+                <li>The team shipped a reliable feature for launch day</li>
+              </ul>
+            </div>
           </div>
-          <div class="detail-col">
-            <div class="detail-label">WHAT NEEDED TO BE DONE</div>
-            <ul>
-              <li>Help the team decide between hitting the date and protecting players at launch</li>
-              <li>Get the game studio to accept a later delivery</li>
-            </ul>
-          </div>
-          <div class="detail-col">
-            <div class="detail-label">WHAT I DID</div>
-            <ul>
-              <li>Pushed back on shipping as-is and laid out the risk for the team</li>
-              <li>Proposed more load testing and tuning, and a 1.5-week extension to fit it in</li>
-              <li>Walked the studio through the data and what could go wrong for players</li>
-              <li>Kept testing and sharing updated results until everyone was comfortable</li>
-            </ul>
-          </div>
-          <div class="detail-col">
-            <div class="detail-label">IMPACT</div>
-            <ul>
-              <li>The studio was unhappy about the delay, but agreed the risk wasn&rsquo;t worth it</li>
-              <li>Load dropped from about 80% to 50-55%, well under the 60% target</li>
-              <li>The team shipped a reliable feature for launch day</li>
-            </ul>
-          </div>
-        </div>
+        </details>
       </article>
     </div>
 
@@ -653,45 +691,48 @@
       <article class="card project-detail">
         <h3>Customer Expectation Reset</h3>
         <p class="project-overview">I took over a customer rollout that was already off track, reset expectations, and rebuilt trust, delivering all 7 sites and winning more work.</p>
-        <div class="detail-grid">
-          <div class="detail-col">
-            <div class="detail-label">PROBLEM</div>
-            <ul>
-              <li>I took over a customer project that was already off track</li>
-              <li>The customer expected a project plan, tickets, and extra features. None of it had been delivered</li>
-              <li>The previous project lead hadn&rsquo;t written anything down</li>
-              <li>Casual chats with an engineer had been taken as promised features</li>
-              <li>The customer was frustrated. Their project manager escalated to their leadership, and our leadership eventually got involved too</li>
-            </ul>
+        <details class="project-more">
+          <summary>Show details</summary>
+          <div class="detail-grid">
+            <div class="detail-col">
+              <div class="detail-label">PROBLEM</div>
+              <ul>
+                <li>I took over a customer project that was already off track</li>
+                <li>The customer expected a project plan, tickets, and extra features. None of it had been delivered</li>
+                <li>The previous project lead hadn&rsquo;t written anything down</li>
+                <li>Casual chats with an engineer had been taken as promised features</li>
+                <li>The customer was frustrated. Their project manager escalated to their leadership, and our leadership eventually got involved too</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">WHAT NEEDED TO BE DONE</div>
+              <ul>
+                <li>Own the gap and get the customer a real plan</li>
+                <li>Agree on what could realistically be delivered with the time already lost</li>
+                <li>Rebuild trust</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">WHAT I DID</div>
+              <ul>
+                <li>Told the customer directly that they&rsquo;d been given incomplete information and that we hadn&rsquo;t met expectations. I made a plan my top priority</li>
+                <li>Used our next working session to agree on where things really stood, then built a plan with clear milestones</li>
+                <li>Sent regular progress updates between meetings so they could always see where things were</li>
+                <li>Laid out the tradeoffs: cut scope, move dates, or add people</li>
+                <li>We chose a mix. We moved some dates, launched a bare-bones first version, and saved the extra features for later phases</li>
+                <li>Offered 100 extra licenses at no cost for 6 months</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">IMPACT</div>
+              <ul>
+                <li>Rolled out the solution at all 7 sites over a 7-month project</li>
+                <li>The customer called out our communication and structure after the project</li>
+                <li>That led to additional work for more sites</li>
+              </ul>
+            </div>
           </div>
-          <div class="detail-col">
-            <div class="detail-label">WHAT NEEDED TO BE DONE</div>
-            <ul>
-              <li>Own the gap and get the customer a real plan</li>
-              <li>Agree on what could realistically be delivered with the time already lost</li>
-              <li>Rebuild trust</li>
-            </ul>
-          </div>
-          <div class="detail-col">
-            <div class="detail-label">WHAT I DID</div>
-            <ul>
-              <li>Told the customer directly that they&rsquo;d been given incomplete information and that we hadn&rsquo;t met expectations. I made a plan my top priority</li>
-              <li>Used our next working session to agree on where things really stood, then built a plan with clear milestones</li>
-              <li>Sent regular progress updates between meetings so they could always see where things were</li>
-              <li>Laid out the tradeoffs: cut scope, move dates, or add people</li>
-              <li>We chose a mix. We moved some dates, launched a bare-bones first version, and saved the extra features for later phases</li>
-              <li>Offered 100 extra licenses at no cost for 6 months</li>
-            </ul>
-          </div>
-          <div class="detail-col">
-            <div class="detail-label">IMPACT</div>
-            <ul>
-              <li>Rolled out the solution at all 7 sites over a 7-month project</li>
-              <li>The customer called out our communication and structure after the project</li>
-              <li>That led to additional work for more sites</li>
-            </ul>
-          </div>
-        </div>
+        </details>
       </article>
     </div>
 
@@ -703,39 +744,42 @@
       <article class="card project-detail">
         <h3>Data Analytics Team Process Overhaul</h3>
         <p class="project-overview">I diagnosed a data team's bandwidth problem with a customer survey, then built a process improvement plan that helped my manager win approval for an additional hire after I'd moved on.</p>
-        <div class="detail-grid">
-          <div class="detail-col">
-            <div class="detail-label">PROBLEM</div>
-            <ul>
-              <li>In my first 2-3 months, customers across teams kept raising the same complaints: long delivery times, too many meetings, and constant misalignment</li>
-              <li>5 teams were spending 120 hours a month combined just on dashboard update meetings</li>
-              <li>60 Tableau licenses sat unused for 12 months, costing about $8,500</li>
-              <li>An NPS survey I ran confirmed it: Turnaround Time scored 0 and Visuals/Presentation Quality scored -60</li>
-            </ul>
+        <details class="project-more">
+          <summary>Show details</summary>
+          <div class="detail-grid">
+            <div class="detail-col">
+              <div class="detail-label">PROBLEM</div>
+              <ul>
+                <li>In my first 2-3 months, customers across teams kept raising the same complaints: long delivery times, too many meetings, and constant misalignment</li>
+                <li>5 teams were spending 120 hours a month combined just on dashboard update meetings</li>
+                <li>60 Tableau licenses sat unused for 12 months, costing about $8,500</li>
+                <li>An NPS survey I ran confirmed it: Turnaround Time scored 0 and Visuals/Presentation Quality scored -60</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">WHAT NEEDED TO BE DONE</div>
+              <ul>
+                <li>Replace anecdotal complaints with real data on where the team's time was actually going, then build a plan to fix it</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">WHAT I DID</div>
+              <ul>
+                <li>Built and ran a customer NPS survey with my Data Solutions manager</li>
+                <li>Analyzed JIRA and Tableau data to size the team's growing backlog</li>
+                <li>Designed a process improvement plan: cut the meeting cadence in half, improved cross-team communication, and made the case for hiring an additional analyst</li>
+                <li>Rolled the plan out over about 12 weeks, from team alignment through execution and a follow-up check-in</li>
+              </ul>
+            </div>
+            <div class="detail-col">
+              <div class="detail-label">IMPACT</div>
+              <ul>
+                <li>The plan was projected to cut meeting time from 120 to 20 hours a month, saving 1,200 hours a year</li>
+                <li>After I left the team, my manager used the data and case I had built to get approval to hire an additional analyst</li>
+              </ul>
+            </div>
           </div>
-          <div class="detail-col">
-            <div class="detail-label">WHAT NEEDED TO BE DONE</div>
-            <ul>
-              <li>Replace anecdotal complaints with real data on where the team's time was actually going, then build a plan to fix it</li>
-            </ul>
-          </div>
-          <div class="detail-col">
-            <div class="detail-label">WHAT I DID</div>
-            <ul>
-              <li>Built and ran a customer NPS survey with my Data Solutions manager</li>
-              <li>Analyzed JIRA and Tableau data to size the team's growing backlog</li>
-              <li>Designed a process improvement plan: cut the meeting cadence in half, improved cross-team communication, and made the case for hiring an additional analyst</li>
-              <li>Rolled the plan out over about 12 weeks, from team alignment through execution and a follow-up check-in</li>
-            </ul>
-          </div>
-          <div class="detail-col">
-            <div class="detail-label">IMPACT</div>
-            <ul>
-              <li>The plan was projected to cut meeting time from 120 to 20 hours a month, saving 1,200 hours a year</li>
-              <li>After I left the team, my manager used the data and case I had built to get approval to hire an additional analyst</li>
-            </ul>
-          </div>
-        </div>
+        </details>
       </article>
     </div>
   </section>
@@ -847,6 +891,13 @@
     });
   }
   wireTabs();
+
+  document.querySelectorAll('.project-more').forEach(function (d) {
+    var sum = d.querySelector('summary');
+    d.addEventListener('toggle', function () {
+      sum.textContent = d.open ? 'Hide details' : 'Show details';
+    });
+  });
 </script>
 
 <script data-goatcounter="https://darrinnguyen.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
