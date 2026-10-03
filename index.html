@@ -447,6 +447,69 @@
     .arrow { transform: rotate(90deg); padding: 2px 0; }
     .mast-row { grid-template-columns: 78px 1fr; }
   }
+
+  /* ---- case studies (collapsible) ---- */
+  .cs { --display: 'Big Shoulders Display', 'Arial Narrow', Impact, sans-serif; --body: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif; --mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace; font-family: var(--body); line-height: 1.6; }
+  .cs p, .cs ul, .cs ol, .cs dl, .cs dd, .cs figure { margin: 0; }
+  .cs h2, .cs h3, .cs h4 { margin: 0; text-wrap: balance; }
+  .cs .ph { color: var(--ink-soft); }
+  .cs .mono { font-family: var(--mono); font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase; }
+  .cs summary { list-style: none; cursor: pointer; }
+  .cs summary::-webkit-details-marker { display: none; }
+  .cs summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  .cs .cases { display: flex; flex-direction: column; gap: 14px; }
+  .cs .case { border: 1px solid var(--line); border-top: 3px solid var(--ink); background: var(--paper); }
+  .cs .case > summary { padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .cs .case > summary .mono { color: var(--accent-strong); }
+  .cs .case-title { font-family: var(--display); font-weight: 900; font-size: clamp(26px, 5vw, 38px); line-height: 1; text-transform: uppercase; letter-spacing: 0.01em; }
+  .cs .case-facts { display: flex; flex-wrap: wrap; gap: 4px 18px; font-size: 14px; color: var(--ink-soft); }
+  .cs .toggle { align-self: flex-start; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; border: 1px solid var(--ink); padding: 6px 10px; }
+  .cs .toggle::before { content: "+ Read case study"; }
+  .cs .case[open] > summary .toggle::before { content: "\2212  Close"; }
+  .cs .case[open] > summary { border-bottom: 1px solid var(--line); }
+  .cs .case-body { padding: 20px; display: flex; flex-direction: column; gap: 18px; }
+  .cs .case.empty { border-style: dashed; border-top: 3px dashed var(--line); padding: 20px; display: flex; flex-direction: column; gap: 10px; }
+  .cs .case.empty .mono,.cs .case.empty .case-title { color: var(--ink-soft); }
+  .cs .snapshot { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 14px 20px; }
+  .cs .snapshot div { min-width: 0; display: flex; flex-direction: column; gap: 2px; }
+  .cs .snapshot dt { font-family: var(--mono); font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
+  .cs .snapshot dd { font-weight: 500; font-size: 15px; }
+  .cs .secs { display: flex; flex-direction: column; }
+  .cs .sec { border-top: 1px solid var(--line); padding-block: 16px; display: flex; flex-direction: column; gap: 12px; }
+  .cs .sec:last-child { padding-bottom: 0; }
+  .cs .sec > h3 { font-family: var(--display); font-weight: 700; font-size: 22px; line-height: 1.1; text-transform: uppercase; letter-spacing: 0.02em; }
+  .cs .sec-body { display: flex; flex-direction: column; gap: 14px; }
+  .cs .sec-body > p { max-width: 64ch; }
+  .cs .decisions { display: flex; flex-direction: column; gap: 14px; }
+  .cs .decision { border: 1px solid var(--line); background: var(--paper-2); padding: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .cs .dec-title { font-size: 17px; font-weight: 600; line-height: 1.3; }
+  .cs .decision dl { display: grid; grid-template-columns: max-content minmax(0, 1fr); gap: 8px 18px; }
+  .cs .decision dt { font-family: var(--mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--accent-strong); padding-top: 3px; }
+  .cs .timeline { list-style: none; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 16px; }
+  .cs .timeline li { min-width: 0; padding-top: 10px; border-top: 3px solid var(--accent); display: flex; flex-direction: column; gap: 2px; }
+  .cs .timeline .when { font-family: var(--mono); font-size: 12px; color: var(--ink-soft); }
+  .cs .timeline .phase { font-weight: 600; }
+  .cs .timeline li span:last-child:not(.phase) { font-size: 15px; }
+  .cs .outcome { padding-left: 20px; display: flex; flex-direction: column; gap: 6px; max-width: 64ch; }
+  .cs figure { display: flex; flex-direction: column; gap: 8px; }
+  .cs figcaption { font-size: 14px; color: var(--ink-soft); }
+  .cs .art-title { font-size: 15px; font-weight: 600; }
+  .cs .scroll { overflow-x: auto; }
+  .cs table { border-collapse: collapse; width: 100%; min-width: 520px; font-size: 14px; }
+  .cs th,.cs td { text-align: left; vertical-align: top; padding: 9px 12px; border: 1px solid var(--line); }
+  .cs th { font-family: var(--mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; font-weight: 500; color: var(--ink-soft); background: var(--paper-2); }
+  .cs .cell { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 6px; }
+  .cs .road { display: flex; align-items: stretch; gap: 3px; min-width: 640px; }
+  .cs .seg { min-width: 0; background: var(--paper-2); border-top: 3px solid var(--accent); padding: 8px; display: flex; flex-direction: column; gap: 2px; font-size: 12px; line-height: 1.3; }
+  .cs .seg span { font-family: var(--mono); color: var(--ink-soft); font-size: 11px; }
+  .cs .seg.post { border-top-color: var(--ink-soft); }
+  .cs .mark { writing-mode: vertical-rl; font-family: var(--mono); font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; background: var(--ink); color: var(--paper); padding: 6px 3px; text-align: center; }
+  .cs .close-case { align-self: flex-start; font: inherit; font-family: var(--mono); font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; background: none; color: var(--ink); border: 1px solid var(--ink); padding: 6px 10px; cursor: pointer; }
+  .cs .close-case:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+  @media (max-width: 560px) {
+    .cs .decision dl { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+    .cs .decision dd { margin-bottom: 8px; }
+  }
 </style>
 </head>
 <body>
@@ -474,13 +537,187 @@
         <a href="https://www.linkedin.com/in/darrindnguyen/" target="_blank" rel="noopener">LinkedIn &#8599;</a>
       </span>
     </div>
-    <p class="intro">I build repeatable systems out of ambiguous processes &mdash; on engineering teams. Browse real TPM projects from my career.</p>
+    <p class="intro">I build repeatable systems out of ambiguous processes on engineering teams. Start with the case study, then browse more projects from my career.</p>
   </header>
 
   <div class="tab-panel active" data-panel="tpm">
 
   <section class="block">
-    <div class="eyebrow">PROFESSIONAL PROJECTS</div>
+    <div class="eyebrow">CASE STUDIES</div>
+    <div class="cs">
+      <div class="cases">
+
+      <details class="case" id="case-player-flags">
+        <summary>
+          <span class="mono">Activision &middot; Technical Project Manager</span>
+          <h2 class="case-title">From a tangled ban system to one service five teams use</h2>
+          <div class="case-facts"><span>Player Flags MVP</span><span>10 months</span><span>13 people across five teams</span></div>
+          <span class="toggle"></span>
+        </summary>
+        <div class="case-body">
+          <dl class="snapshot">
+            <div><dt>Company</dt><dd>Activision</dd></div>
+            <div><dt>Role</dt><dd>Technical Project Manager</dd></div>
+            <div><dt>Core team</dt><dd>3 engineers, 1 engineering manager, and me as TPM</dd></div>
+            <div><dt>Partner teams</dt><dd>A UI team and 3 dependency teams, each with 1 engineer and 1 TPM</dd></div>
+            <div><dt>Duration</dt><dd>10 months</dd></div>
+            <div><dt>Affected</dt><dd>Anti-Cheat, Moderation, Matchmaking, Player Support, Live Operations</dd></div>
+          </dl>
+          <div class="secs">
+      <section class="sec">
+        <h3>The problem</h3>
+        <div class="sec-body">
+    <p>Player bans were built into one big, tangled system. They ranged from limiting a player to matches against computer opponents to banning an account for a set period or for good. Five teams relied on that system, and any change by one team risked breaking the others&rsquo; work. Moderation had outgrown it and couldn&rsquo;t scale on top of it.</p>
+    <p>Banning a player was also not self-service. Anyone who needed a ban had to go through the engineering teams that owned the banning services and wait for them to do it.</p>
+    <p>The old system was called Feature Bans, but it had grown far past banning. Teams were using it to store all kinds of per-player settings, so the name had become misleading. It also had no record of who changed what, little tracking of how it was used, no way to sort settings into categories, and weak tools for the people running it.</p>
+    <p>Activision was breaking its big system into smaller, independent services. This project would move that player state into its own service, called Player Flags, that other teams could connect to easily. The goal was a service for any rule attached to a player, not just a moderation tool.</p>
+        </div>
+      </section>
+      <section class="sec">
+        <h3>How it fits together</h3>
+        <div class="sec-body">
+<p>Other systems, such as Anti-Cheat, Moderation and Player Support tools, ask the service to put a flag on a player. The service stores it, then sends a notice to whatever needs to act on it: the player&rsquo;s game app, or the game servers and matchmaking that put players into matches. Flags were used for cheat prevention, moderation limits, matchmaking behavior, game server behavior, trust scores, feature switches, event groups and support cases.</p>
+    <p>A simple way to say it: Moderation decides what should happen. Player Flags stores that decision and delivers it to everything that has to enforce it.</p>
+        </div>
+      </section>
+      <section class="sec">
+        <h3>What made it hard</h3>
+        <div class="sec-body">
+    <p>A first working version had to be ready by the next game&rsquo;s launch date, and that date would not move. Five teams with different needs all depended on the same service, so every requirement had to work for all of them. The build also depended on four other teams, a UI team and three dependency teams, each with its own engineer and TPM. That made 13 people across five teams to keep in step.</p>
+        </div>
+      </section>
+      <section class="sec">
+        <h3>Key decisions</h3>
+        <div class="sec-body">
+    <div class="decisions">
+      <div class="decision">
+        <h4 class="dec-title">Hold large batch actions until after launch</h4>
+        <dl>
+          <dt>Options</dt><dd>Build everything the teams asked for in the first version, or ship the essentials and add the rest later.</dd>
+          <dt>The call</dt><dd>I kept the essentials and moved large batch actions, which ban up to tens of thousands of players at once, to after launch.</dd>
+          <dt>Why</dt><dd>The first version had to be ready for the game&rsquo;s launch date. At launch we expected one-off cheaters, not large groups, so banning in batches wasn&rsquo;t critical on day one. The cost was that Anti-Cheat stayed on their old workflow for a while. It wasn&rsquo;t self-service, it depended on the team that owned banning inside the old system, and it took more manual steps.</dd>
+          <dt>Pushback</dt><dd>Anti-Cheat wanted batch actions at launch and pushed back at first. We proposed a date for adding them in a later season, about 4 weeks after launch, and they agreed to use their existing workflow until then. The engineers supported the cut because it gave them more time and cushion for the first version.</dd>
+          <dt>Proof</dt><dd>When batch actions were added later, one large job slowed down urgent notices in production. That confirmed holding them back was the right call, and it led to the redesign described below.</dd>
+        </dl>
+      </div>
+      <div class="decision">
+        <h4 class="dec-title">Keep the team on the first version</h4>
+        <dl>
+          <dt>Options</dt><dd>Let design work continue on problems outside the first version, or bring it back to the agreed requirements.</dd>
+          <dt>The call</dt><dd>During the design phase, one of our engineers began working on problems he had spotted that were outside the first version&rsquo;s requirements. I steered the work back to the plan.</dd>
+          <dt>Why</dt><dd>It was using up engineering time and delaying the point where we could present our requirements and design to the customer teams for approval. That put the launch date at risk.</dd>
+          <dt>Pushback</dt><dd>He stood his ground at first and wanted to address those problems from the start. We agreed to accept them as risks because the chance of them turning into real issues was low. The trade-off was more refactoring work later, which was worth it to stay on track.</dd>
+          <dt>Proof</dt><dd>The team finished early enough to start the next phase ahead of schedule.</dd>
+        </dl>
+      </div>
+    </div>
+        </div>
+      </section>
+      <section class="sec">
+        <h3>How it ran</h3>
+        <div class="sec-body">
+    <ol class="timeline">
+      <li><span class="when">1 month</span><span class="phase">Discovery</span><span>Interviewed the five teams to learn how they worked and what frustrated them.</span></li>
+      <li><span class="when">1.5 months</span><span class="phase">Requirements and design</span><span>Turned what I heard into a clear list of requirements and cut scope to fit the date.</span></li>
+      <li><span class="when">1 month</span><span class="phase">Alignment</span><span>Got engineering and all five teams to agree on who owned what, who depended on whom, and how we&rsquo;d test together.</span></li>
+      <li><span class="when">6.5 months</span><span class="phase">Build, load test, launch</span><span>Built the first version, tested it under peak player numbers, and shipped for launch.</span></li>
+    </ol>
+    <p>Load testing took longer than expected. We adjusted the schedule and carved out more time to bring the service&rsquo;s load down to a reasonable level at peak player numbers.</p>
+    <p>After launch, the service became a critical path for Anti-Cheat, game security and other enforcement work. The notice sender had been built for &ldquo;best effort&rdquo; delivery, with every update waiting in one line no matter its size or urgency. When a large batch job ran, it held up urgent notices. The write-up of that incident led the engineers to split the work in two. Small updates keep a fast path. Large jobs go through an upload: a team sends a compressed file, the service processes it in the background with its own workers, and urgent notices are never delayed behind it.</p>
+        </div>
+      </section>
+      <section class="sec">
+        <h3>Outcome</h3>
+        <div class="sec-body">
+    <ul class="outcome">
+      <li>Shipped on time for the game&rsquo;s launch.</li>
+      <li>Banning became self-service. Anti-Cheat and other stakeholders with the right permissions could ban players themselves through a new interface, without relying on engineering teams.</li>
+      <li>Finished early enough to start the next phase ahead of schedule.</li>
+      <li>The five teams gave positive feedback on the new service.</li>
+      <li>Delivered a real step in Activision&rsquo;s move to smaller, independent services.</li>
+      <li>The service grew from a ban replacement into the shared place where player restrictions are stored and delivered for several teams.</li>
+      <li>Batch actions, once added, exposed a delay for urgent notices. The team fixed it with a separate background path for large jobs.</li>
+    </ul>
+        </div>
+      </section>
+      <section class="sec">
+        <h3>What I&rsquo;d do differently</h3>
+        <div class="sec-body">
+    <p>I would write down what is out of scope at design kickoff. A short list of what the first version will not include, with a place to park concerns for later, would have caught the design detour sooner.</p>
+    <p>I would also bring the batch actions trade-off to Anti-Cheat earlier, with the date for adding them already attached. That would likely have avoided the initial pushback.</p>
+        </div>
+      </section>
+      <section class="sec">
+        <h3>Artifacts</h3>
+        <div class="sec-body">
+    <p>Simplified versions of three documents I used to run the project, recreated without internal details.</p>
+
+    <figure>
+      <h4 class="art-title">Team roadmap</h4>
+      <div class="scroll">
+        <div class="road">
+          <div class="seg" style="flex:4"><b>Discovery</b><span>1 mo</span></div>
+          <div class="seg" style="flex:6"><b>Requirements and design</b><span>1.5 mo</span></div>
+          <div class="seg" style="flex:4"><b>Alignment</b><span>1 mo</span></div>
+          <div class="seg" style="flex:26"><b>Build, load test, launch</b><span>6.5 mo</span></div>
+          <div class="mark">Game launch</div>
+          <div class="seg post" style="flex:4"><b>Batch actions</b><span>4 wks</span></div>
+        </div>
+      </div>
+      <figcaption>Bar lengths are proportional to time. Batch actions shipped in a later season, about 4 weeks after launch.</figcaption>
+    </figure>
+
+    <figure>
+      <h4 class="art-title">Requirements: scope for the first version</h4>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>In the first version</th><th>After launch</th></tr></thead>
+          <tbody>
+            <tr>
+              <td><ul class="cell">
+                <li>Player bans in their own service, separate from the old system</li>
+                <li>Bans on individual players, from limiting matches to computer opponents through to timed and permanent bans</li>
+                <li>Connections for Anti-Cheat, Moderation, Matchmaking, Player Support and Live Operations</li>
+                <li>A new interface where people with the right permissions can ban players themselves</li>
+              </ul></td>
+              <td><ul class="cell">
+                <li>Large batch actions, banning up to tens of thousands of players at once</li>
+                <li>Design concerns outside the first version&rsquo;s requirements</li>
+              </ul></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </figure>
+
+    <figure>
+      <h4 class="art-title">Risk log</h4>
+      <div class="scroll">
+        <table>
+          <thead><tr><th>Risk</th><th>Likelihood</th><th>Response</th></tr></thead>
+          <tbody>
+            <tr><td>Anti-Cheat needs to ban a large group of players before batch actions exist</td><td>Low</td><td>Use their existing workflow until batch actions ship, about 4 weeks after launch</td></tr>
+            <tr><td>Design problems outside the first version turn into real issues</td><td>Low</td><td>Accept the risk and plan refactoring work after launch</td></tr>
+            <tr><td>Work grows beyond the first version and the launch date slips</td><td>Medium</td><td>Hold design and build to the agreed requirements</td></tr>
+            <tr><td>The service can&rsquo;t handle peak player numbers at launch</td><td>High</td><td>Extend load testing and tune until load is within a reasonable range</td></tr>
+            <tr><td>A change for one team breaks another team&rsquo;s work</td><td>Medium</td><td>Agree on ownership, dependencies and joint testing before building</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </figure>
+        </div>
+      </section>
+          </div>
+          <button type="button" class="close-case" id="close-player-flags">&minus; Close case study</button>
+        </div>
+      </details>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="eyebrow">MORE PROJECTS</div>
 
     <div class="role">
       <div class="role-header">
@@ -538,53 +775,6 @@
         <span class="role-title">Technical Project Manager</span>
         <span class="role-company">Activision</span>
       </div>
-      <article class="card project-detail">
-        <h3>Player Flags MVP</h3>
-        <p class="project-overview">I led a new &ldquo;Player Flags&rdquo; service from idea to launch, on time for a major game release. It let four teams manage player restrictions without getting in each other&rsquo;s way.</p>
-        <details class="project-more">
-          <summary>Show details</summary>
-          <div class="detail-grid">
-            <div class="detail-col">
-              <div class="detail-label">PROBLEM</div>
-              <ul>
-                <li>Player restrictions were built into one big, tangled system. These ranged from limiting a player to matches against computer opponents to banning an account for a set period or for good</li>
-                <li>4 teams relied on it: Anti-Cheat, Moderation, Matchmaking, and Player Support</li>
-                <li>Any change by one team risked breaking the others&rsquo; work</li>
-                <li>Moderation had outgrown the old system and couldn&rsquo;t scale on top of it</li>
-              </ul>
-            </div>
-            <div class="detail-col">
-              <div class="detail-label">WHAT NEEDED TO BE DONE</div>
-              <ul>
-                <li>Activision was breaking its big system into smaller, independent services, so each could be updated without affecting the rest</li>
-                <li>This project would move player restrictions into their own service, called Player Flags. Other teams could connect to it easily</li>
-                <li>A first working version had to be ready by the next game&rsquo;s launch date</li>
-              </ul>
-            </div>
-            <div class="detail-col">
-              <div class="detail-label">WHAT I DID</div>
-              <ul>
-                <li>Interviewed the 4 teams to learn how they worked and what frustrated them</li>
-                <li>Turned what I heard into a clear list of requirements</li>
-                <li>Cut scope to hit the deadline: kept the essentials and moved large batch actions (restricting up to tens of thousands of players at once) to after launch</li>
-                <li>Got engineering and all 4 teams to agree on who owned what, who depended on whom, and how we&rsquo;d test together</li>
-                <li>Noticed the team starting to build beyond the first version and steered them back to the plan</li>
-              </ul>
-            </div>
-            <div class="detail-col">
-              <div class="detail-label">IMPACT</div>
-              <ul>
-                <li>Shipped on time for the game's launch</li>
-                <li>Finished early enough to start the next phase ahead of schedule</li>
-                <li>Delivered a real step in Activision&rsquo;s move to smaller, independent services</li>
-                <li>The 4 teams gave positive feedback on the new service</li>
-                <li>Batch actions later slowed down everyday requests, which confirmed that holding them back until after launch was the right call</li>
-              </ul>
-            </div>
-          </div>
-        </details>
-      </article>
-
       <article class="card project-detail">
         <h3>Closing the Engineering Team Knowledge Gap</h3>
         <p class="project-overview">I closed a knowledge gap between our US and Dublin engineering teams. Problems that used to wait a day or more now got fixed in hours, sometimes minutes, which senior leadership confirmed.</p>
@@ -875,6 +1065,17 @@
     });
   }
   wireTabs();
+
+  document.querySelectorAll('.close-case').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var card = btn.closest('details.case');
+      if (!card) return;
+      card.open = false;
+      card.scrollIntoView({ block: 'start' });
+      var head = card.querySelector('summary');
+      if (head) head.focus({ preventScroll: true });
+    });
+  });
 
   document.querySelectorAll('.project-more').forEach(function (d) {
     var sum = d.querySelector('summary');
