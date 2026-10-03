@@ -156,7 +156,7 @@
 
   <header>
     <div class="kicker">Case study &middot; Player Flags MVP</div>
-    <h1>Shipped a player ban service in 10 months, on time for launch</h1>
+    <h1>From a tangled ban system to one service five teams use</h1>
     <dl class="snapshot">
       <div><dt>Company</dt><dd>Activision</dd></div>
       <div><dt>Role</dt><dd>Technical Project Manager</dd></div>
@@ -171,7 +171,14 @@
     <h2>The problem</h2>
     <p>Player bans were built into one big, tangled system. They ranged from limiting a player to matches against computer opponents to banning an account for a set period or for good. Five teams relied on that system, and any change by one team risked breaking the others&rsquo; work. Moderation had outgrown it and couldn&rsquo;t scale on top of it.</p>
     <p>Banning a player was also not self-service. Anyone who needed a ban had to go through the engineering teams that owned the banning services and wait for them to do it.</p>
-    <p>Activision was breaking its big system into smaller, independent services. This project would move player bans into their own service, called Player Flags, that other teams could connect to easily.</p>
+    <p>The old system was called Feature Bans, but it had grown far past banning. Teams were using it to store all kinds of per-player settings, so the name had become misleading. It also had no record of who changed what, little tracking of how it was used, no way to sort settings into categories, and weak tools for the people running it.</p>
+    <p>Activision was breaking its big system into smaller, independent services. This project would move that player state into its own service, called Player Flags, that other teams could connect to easily. The goal was a service for any rule attached to a player, not just a moderation tool.</p>
+  </section>
+
+  <section>
+    <h2>How it fits together</h2>
+    <p>Other systems, such as Anti-Cheat, Moderation and Player Support tools, ask the service to put a flag on a player. The service stores it, then sends a notice to whatever needs to act on it: the player&rsquo;s game app, or the game servers and matchmaking that put players into matches. Flags were used for cheat prevention, moderation limits, matchmaking behavior, game server behavior, trust scores, feature switches, event groups and support cases.</p>
+    <p>A simple way to say it: Moderation decides what should happen. Player Flags stores that decision and delivers it to everything that has to enforce it.</p>
   </section>
 
   <section>
@@ -189,7 +196,7 @@
           <dt>The call</dt><dd>I kept the essentials and moved large batch actions, which ban up to tens of thousands of players at once, to after launch.</dd>
           <dt>Why</dt><dd>The first version had to be ready for the game&rsquo;s launch date. At launch we expected one-off cheaters, not large groups, so banning in batches wasn&rsquo;t critical on day one. The cost was that Anti-Cheat stayed on their old workflow for a while. It wasn&rsquo;t self-service, it depended on the team that owned banning inside the old system, and it took more manual steps.</dd>
           <dt>Pushback</dt><dd>Anti-Cheat wanted batch actions at launch and pushed back at first. We proposed a date for adding them in a later season, about 4 weeks after launch, and they agreed to use their existing workflow until then. The engineers supported the cut because it gave them more time and cushion for the first version.</dd>
-          <dt>Proof</dt><dd>When batch actions were added later, they slowed down everyday requests. That confirmed holding them back was the right call.</dd>
+          <dt>Proof</dt><dd>When batch actions were added later, one large job slowed down urgent notices in production. That confirmed holding them back was the right call, and it led to the redesign described below.</dd>
         </dl>
       </div>
       <div class="decision">
@@ -214,6 +221,7 @@
       <li><span class="when">6.5 months</span><span class="phase">Build, load test, launch</span><span>Built the first version, tested it under peak player numbers, and shipped for launch.</span></li>
     </ol>
     <p>Load testing took longer than expected. We adjusted the schedule and carved out more time to bring the service&rsquo;s load down to a reasonable level at peak player numbers.</p>
+    <p>After launch, the service became a critical path for Anti-Cheat, game security and other enforcement work. The notice sender had been built for &ldquo;best effort&rdquo; delivery, with every update waiting in one line no matter its size or urgency. When a large batch job ran, it held up urgent notices. The write-up of that incident led the engineers to split the work in two. Small updates keep a fast path. Large jobs go through an upload: a team sends a compressed file, the service processes it in the background with its own workers, and urgent notices are never delayed behind it.</p>
   </section>
 
   <section>
@@ -224,6 +232,8 @@
       <li>Finished early enough to start the next phase ahead of schedule.</li>
       <li>The five teams gave positive feedback on the new service.</li>
       <li>Delivered a real step in Activision&rsquo;s move to smaller, independent services.</li>
+      <li>The service grew from a ban replacement into the shared place where player restrictions are stored and delivered for several teams.</li>
+      <li>Batch actions, once added, exposed a delay for urgent notices. The team fixed it with a separate background path for large jobs.</li>
     </ul>
   </section>
 
